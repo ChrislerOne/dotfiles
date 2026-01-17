@@ -3,6 +3,10 @@
 alias cat="bat"
 alias k="kubectl"
 
+alias gst="git status"
+alias gl="git pull"
+alias gp="git push"
+
 alias ls='eza'
 alias ll='eza -la'
 alias la='eza -a'

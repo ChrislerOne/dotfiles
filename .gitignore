@@ -2,7 +2,10 @@
 .DS_Store
 
 # Nvim
-nvim/lazy-lock.json
+.config/nvim/lazy-lock.json
+
+# Nushell history
+.config/nushell/history.*
 
 # Local/private files
 *.local

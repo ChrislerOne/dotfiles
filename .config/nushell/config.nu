@@ -41,5 +41,10 @@ source ~/.cache/zoxide/init.nu
 alias cd = z
 alias j = z
 
+# git
+alias gst = git status
+alias gp = git push
+alias gl = git pull
+
 # Load starship prompt
 use ~/.cache/starship/init.nu
