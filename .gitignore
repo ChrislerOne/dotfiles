@@ -1,0 +1,9 @@
+# OS
+.DS_Store
+
+# Nvim
+nvim/lazy-lock.json
+
+# Local/private files
+*.local
+*.private

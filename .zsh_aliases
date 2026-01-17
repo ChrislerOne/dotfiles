@@ -1,0 +1,13 @@
+# Aliases
+
+alias cat="bat"
+alias k="kubectl"
+
+alias ls='eza'
+alias ll='eza -la'
+alias la='eza -a'
+alias lt='eza --tree'
+alias lg='eza -la --git'
+
+alias cd='z'
+alias j='z'
