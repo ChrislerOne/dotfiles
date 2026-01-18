@@ -14,6 +14,9 @@ brew install stow
 # Create symlinks
 cd ~/dotfiles
 stow .
+
+# Install VS Code extensions
+cat ~/.config/vscode/extensions.txt | xargs -L 1 code --install-extension
 ```
 
 ## Dependencies

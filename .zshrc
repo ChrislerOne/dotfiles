@@ -33,6 +33,10 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-history-substring-search
+
+# Initialize completion system (required for fzf-tab)
+autoload -Uz compinit && compinit
+
 zinit light Aloxaf/fzf-tab
 
 # fzf shell integration
