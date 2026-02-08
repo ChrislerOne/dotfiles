@@ -31,23 +31,15 @@ $env.config = {
     }
 }
 
-# Aliases
-alias cat = bat
-alias k = kubectl
-
 # Load zoxide (before aliases that use z)
 source ~/.cache/zoxide/init.nu
 
 # Load direnv
 source ~/.cache/direnv/init.nu
 
-alias cd = z
-alias j = z
-
-# git
-alias gst = git status
-alias gp = git push
-alias gl = git pull
+# Aliases
+# Shared aliases are handled via env.nu generation for performance
+source ~/.cache/nushell/aliases.nu
 
 # Load starship prompt
 use ~/.cache/starship/init.nu

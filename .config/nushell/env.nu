@@ -27,8 +27,23 @@ let direnv_path = ([ $env.HOMEBREW_PREFIX "bin" "direnv" ] | path join)
 export-env {
     \$env.config = (\$env.config | upsert hooks.env_change.PWD (\$env.config.hooks?.env_change?.PWD? | default [] | append [{
         code: {|before, after| 
-            " + $direnv_path + " export json | from json | default {} | load-env
+            ^" + $direnv_path + " export json | from json | default {} | load-env
         }
     }]))
 }
 " | save -f ~/.cache/direnv/init.nu
+
+# Shared Aliases
+mkdir ~/.cache/nushell
+let alias_file = "/Users/christopherlewerenz/dotfiles/.aliases"
+if ($alias_file | path exists) {
+    let content = (open $alias_file | lines | str trim)
+    let filtered = ($content | where ($it | is-not-empty) | where (not ($it | str starts-with "#")))
+    let aliased = ($filtered | each { |line|
+        let parts = ($line | split row "=")
+        let key = ($parts | get 0 | str trim)
+        let val = ($parts | slice 1.. | str join "=" | str trim)
+        $"alias ($key) = ($val)"
+    })
+    $aliased | str join (char nl) | save -f ~/.cache/nushell/aliases.nu
+}
