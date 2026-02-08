@@ -1,14 +1,16 @@
 # Nushell Environment Config
 
 # Homebrew
-$env.HOMEBREW_PREFIX = '/opt/homebrew'
-$env.HOMEBREW_CELLAR = '/opt/homebrew/Cellar'
-$env.HOMEBREW_REPOSITORY = '/opt/homebrew'
+const BREW_LOCATIONS = ["/opt/homebrew" "/usr/local" "/home/linuxbrew/.linuxbrew"]
+let brew_prefix = ($BREW_LOCATIONS | where {|p| $p | path join "bin" "brew" | path exists} | first)
+$env.HOMEBREW_PREFIX = $brew_prefix
+$env.HOMEBREW_CELLAR = ($brew_prefix | path join "Cellar")
+$env.HOMEBREW_REPOSITORY = $brew_prefix
 
 # PATH
 $env.PATH = ($env.PATH | split row (char esep) | prepend [
-    '/opt/homebrew/bin'
-    '/opt/homebrew/sbin'
+    ($brew_prefix | path join "bin")
+    ($brew_prefix | path join "sbin")
     $'($env.HOME)/.local/bin'
 ])
 
