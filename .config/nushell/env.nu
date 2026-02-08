@@ -22,4 +22,13 @@ starship init nu | save -f ~/.cache/starship/init.nu
 
 # direnv 
 mkdir ~/.cache/direnv
-direnv hook zsh | save -f ~/.cache/direnv/init.nu
+let direnv_path = ([ $env.HOMEBREW_PREFIX "bin" "direnv" ] | path join)
+"
+export-env {
+    \$env.config = (\$env.config | upsert hooks.env_change.PWD (\$env.config.hooks?.env_change?.PWD? | default [] | append [{
+        code: {|before, after| 
+            " + $direnv_path + " export json | from json | default {} | load-env
+        }
+    }]))
+}
+" | save -f ~/.cache/direnv/init.nu

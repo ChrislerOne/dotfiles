@@ -38,6 +38,9 @@ alias k = kubectl
 # Load zoxide (before aliases that use z)
 source ~/.cache/zoxide/init.nu
 
+# Load direnv
+source ~/.cache/direnv/init.nu
+
 alias cd = z
 alias j = z
 
