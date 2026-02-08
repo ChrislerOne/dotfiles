@@ -10,6 +10,7 @@ brew "fd"            # Better find
 brew "ripgrep"       # Better grep
 brew "mise"          # Polyglot runtime manager
 brew "direnv"        # Env management
+brew "nushell"       # Modern shell
 brew "stow"          # Dotfile management
 brew "yq"            # YAML processor
 brew "jq"            # JSON processor

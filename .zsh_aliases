@@ -1,9 +1,17 @@
 # Load shared aliases
-local alias_file="/Users/christopherlewerenz/dotfiles/.aliases"
-if [ -f "$alias_file" ]; then
+if [ -f "$HOME/dotfiles/.aliases" ]; then
     while IFS='=' read -r key value; do
-        # Skip comments and empty lines
         [[ "$key" =~ ^[[:space:]]*# || -z "$key" ]] && continue
         alias "$key"="$value"
-    done < "$alias_file"
+    done < "$HOME/dotfiles/.aliases"
 fi
+
+# Zsh-specific aliases
+alias cat=bat
+alias ls=eza
+alias ll="eza -la"
+alias la="eza -a"
+alias lt="eza --tree"
+alias lg="eza -la --git"
+alias cd=z
+alias j=z

@@ -37,17 +37,3 @@ export-env {
 }
 " | save -f ~/.cache/direnv/init.nu
 
-# Shared Aliases
-mkdir ~/.cache/nushell
-let alias_file = "/Users/christopherlewerenz/dotfiles/.aliases"
-if ($alias_file | path exists) {
-    let content = (open $alias_file | lines | str trim)
-    let filtered = ($content | where ($it | is-not-empty) | where (not ($it | str starts-with "#")))
-    let aliased = ($filtered | each { |line|
-        let parts = ($line | split row "=")
-        let key = ($parts | get 0 | str trim)
-        let val = ($parts | slice 1.. | str join "=" | str trim)
-        $"alias ($key) = ($val)"
-    })
-    $aliased | str join (char nl) | save -f ~/.cache/nushell/aliases.nu
-}

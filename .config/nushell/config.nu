@@ -41,8 +41,10 @@ source ~/.cache/direnv/init.nu
 source ~/.cache/mise/init.nu
 
 # Aliases
-# Shared aliases are handled via env.nu generation for performance
-source ~/.cache/nushell/aliases.nu
+alias k = kubectl
+alias gst = git status
+alias gl = git pull
+alias gp = git push
 
 # Load starship prompt
 use ~/.cache/starship/init.nu
