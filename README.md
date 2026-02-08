@@ -8,15 +8,12 @@ My configuration files for zsh, nushell, nvim, and starship.
 # Clone the repo
 git clone https://github.com/YOUR_USERNAME/dotfiles.git ~/dotfiles
 
-# Install stow if needed
-brew install stow
+# Install Homebrew dependencies
+cd ~/dotfiles
+brew bundle
 
 # Create symlinks
-cd ~/dotfiles
 stow .
-
-# Install VS Code extensions
-cat ~/.config/vscode/extensions.txt | xargs -L 1 code --install-extension
 ```
 
 ## Dependencies
