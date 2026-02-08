@@ -19,3 +19,7 @@ zoxide init nushell | save -f ~/.cache/zoxide/init.nu
 # Generate starship init
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
+
+# direnv 
+mkdir ~/.cache/direnv
+direnv hook zsh | save -f ~/.cache/direnv/init.nu
