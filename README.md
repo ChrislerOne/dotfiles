@@ -6,7 +6,7 @@ My configuration files for zsh, nushell, nvim, and starship.
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/dotfiles.git ~/dotfiles
+git clone https://github.com/ChrislerOne/dotfiles.git ~/dotfiles
 
 # Install Homebrew dependencies
 cd ~/dotfiles
