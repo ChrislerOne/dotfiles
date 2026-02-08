@@ -45,5 +45,8 @@ source <(fzf --zsh)
 # zoxide
 eval "$(zoxide init zsh)"
 
+# mise
+eval "$(mise activate zsh)"
+
 # direnv 
 eval "$(direnv hook zsh)"

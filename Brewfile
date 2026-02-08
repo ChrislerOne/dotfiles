@@ -8,6 +8,7 @@ brew "bat"           # Better cat
 brew "eza"           # Better ls
 brew "fd"            # Better find
 brew "ripgrep"       # Better grep
+brew "mise"          # Polyglot runtime manager
 brew "direnv"        # Env management
 brew "stow"          # Dotfile management
 brew "yq"            # YAML processor

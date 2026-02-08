@@ -1,0 +1,17 @@
+# Core
+cat=bat
+k=kubectl
+ls=eza
+ll=eza -la
+la=eza -a
+lt=eza --tree
+lg=eza -la --git
+
+# Navigation
+cd=z
+j=z
+
+# Git
+gst=git status
+gl=git pull
+gp=git push

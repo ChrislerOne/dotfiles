@@ -37,6 +37,9 @@ source ~/.cache/zoxide/init.nu
 # Load direnv
 source ~/.cache/direnv/init.nu
 
+# Load mise
+source ~/.cache/mise/init.nu
+
 # Aliases
 # Shared aliases are handled via env.nu generation for performance
 source ~/.cache/nushell/aliases.nu

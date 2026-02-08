@@ -20,6 +20,10 @@ zoxide init nushell | save -f ~/.cache/zoxide/init.nu
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
 
+# Generate mise init
+mkdir ~/.cache/mise
+mise activate nu | save -f ~/.cache/mise/init.nu
+
 # direnv 
 mkdir ~/.cache/direnv
 let direnv_path = ([ $env.HOMEBREW_PREFIX "bin" "direnv" ] | path join)
