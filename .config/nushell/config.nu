@@ -25,6 +25,43 @@ $env.config = {
     edit_mode: emacs
     highlight_resolved_externals: true
 
+    menus: [
+        {
+            name: history_menu
+            only_buffer_difference: true
+            marker: ""
+            type: { layout: list, page_size: 10 }
+            style: { text: green, selected_text: green_reverse }
+        }
+    ]
+
+    keybindings: [
+        {
+            name: history_prefix_up
+            modifier: none
+            keycode: up
+            mode: [emacs vi_normal vi_insert]
+            event: {
+                until: [
+                    { send: menuup }
+                    { send: menu name: history_menu }
+                ]
+            }
+        }
+        {
+            name: history_prefix_down
+            modifier: none
+            keycode: down
+            mode: [emacs vi_normal vi_insert]
+            event: {
+                until: [
+                    { send: menudown }
+                    { send: menu name: history_menu }
+                ]
+            }
+        }
+    ]
+
     color_config: {
         shape_external: red
         shape_external_resolved: green
