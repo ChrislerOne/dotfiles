@@ -1,4 +1,6 @@
+tap "azure/kubelogin"
 tap "hashicorp/tap"
+tap "kyverno/chainsaw"
 
 # Core Shell & CLI Utilities
 brew "starship"      # Cross-shell prompt
@@ -33,6 +35,11 @@ brew "kubectx"
 brew "helm@3"
 brew "helmfile"
 brew "kind"
+brew "argocd"
+brew "crossplane"
+brew "azure/kubelogin/kubelogin"
+brew "kyverno/chainsaw/chainsaw"
+brew "dive"
 
 # Development Tools
 brew "go"
@@ -42,6 +49,9 @@ brew "tenv"
 brew "sops"
 brew "age"
 brew "gnupg"
+brew "glab"
+brew "doggo"
+brew "watch"
 
 # VS Code Extensions
 vscode "golang.go"
