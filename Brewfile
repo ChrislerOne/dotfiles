@@ -16,6 +16,7 @@ brew "nushell"       # Modern shell
 brew "stow"          # Dotfile management
 brew "yq"            # YAML processor
 brew "jq"            # JSON processor
+brew "difftastic"    # Better diff output
 
 # Editor & Terminal
 brew "neovim"
