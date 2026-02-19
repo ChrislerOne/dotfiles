@@ -41,6 +41,7 @@ brew "crossplane"
 brew "azure/kubelogin/kubelogin"
 brew "kyverno/chainsaw/chainsaw"
 brew "dive"
+brew "brunoluiz/tap/xpdig"
 
 # Development Tools
 brew "go"
