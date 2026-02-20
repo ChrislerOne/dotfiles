@@ -16,6 +16,19 @@ brew bundle
 stow .
 ```
 
+## Optional macOS tweaks
+
+```bash
+# Hide the Dock (autohide)
+defaults write com.apple.dock autohide -bool true; killall Dock
+
+# Remove dock autohide animation
+defaults write com.apple.dock autohide-time-modifier -int 0; killall Dock
+
+# Remove dock autohide delay
+defaults write com.apple.dock autohide-delay -float 0; killall Dock
+```
+
 ## Dependencies
 
 - [starship](https://starship.rs) - prompt

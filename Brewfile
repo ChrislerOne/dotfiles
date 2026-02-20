@@ -1,6 +1,8 @@
 tap "azure/kubelogin"
 tap "hashicorp/tap"
 tap "kyverno/chainsaw"
+tap "brunoluiz/tap"
+tap "nikitabobko/tap"
 
 # Core Shell & CLI Utilities
 brew "starship"      # Cross-shell prompt
@@ -24,10 +26,14 @@ cask "ghostty"
 cask "visual-studio-code"
 cask "font-jetbrains-mono"
 
+# Window Manager
+cask "nikitabobko/tap/aerospace"
+
 # GUI & Productivity
 cask "1password"
 cask "alfred"
 cask "alt-tab"
+cask "linearmouse"
 
 # Kubernetes & Cloud Tools
 brew "kubernetes-cli"
@@ -54,6 +60,7 @@ brew "gnupg"
 brew "glab"
 brew "doggo"
 brew "watch"
+brew "gh"
 
 # VS Code Extensions
 vscode "golang.go"
