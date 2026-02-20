@@ -3,6 +3,7 @@ tap "hashicorp/tap"
 tap "kyverno/chainsaw"
 tap "brunoluiz/tap"
 tap "nikitabobko/tap"
+tap "FelixKratz/formulae"
 
 # Core Shell & CLI Utilities
 brew "starship"      # Cross-shell prompt
@@ -28,6 +29,7 @@ cask "font-jetbrains-mono"
 
 # Window Manager
 cask "nikitabobko/tap/aerospace"
+brew "FelixKratz/formulae/borders"
 
 # GUI & Productivity
 cask "1password"
