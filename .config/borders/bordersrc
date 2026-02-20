@@ -1,0 +1,10 @@
+#!/bin/bash
+
+options=(
+  style=round
+  width=5.0
+  active_color=0xff89b4fa   # Catppuccin Mocha Blue
+  inactive_color=0xff313244 # Catppuccin Mocha Surface0
+)
+
+borders "${options[@]}"
