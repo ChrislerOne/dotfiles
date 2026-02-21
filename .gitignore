@@ -7,6 +7,10 @@
 # Nushell history
 .config/nushell/history.*
 
+# CLI config
+.config/gh/
+.config/glab-cli/
+
 # Local/private files
 *.local
 *.private
