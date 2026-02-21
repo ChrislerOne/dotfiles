@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 
 -- Disable arrow keys — use hjkl instead
-for _, mode in ipairs({ "n", "i", "v" }) do
+for _, mode in ipairs({ "n", "v" }) do
   for _, key in ipairs({ "<Up>", "<Down>", "<Left>", "<Right>" }) do
     vim.keymap.set(mode, key, function()
       vim.notify("Use hjkl!", vim.log.levels.WARN)
