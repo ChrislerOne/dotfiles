@@ -36,3 +36,4 @@ defaults write com.apple.dock autohide-delay -float 0; killall Dock
 - [eza](https://github.com/eza-community/eza) - better ls
 - [bat](https://github.com/sharkdp/bat) - better cat
 - [fzf](https://github.com/junegunn/fzf) - fuzzy finder
+- [borders](https://github.com/FelixKratz/JankyBorders) - window border highlights (started via `brew services` by Aerospace)

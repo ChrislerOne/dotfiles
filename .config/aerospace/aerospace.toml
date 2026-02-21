@@ -1,6 +1,6 @@
 start-at-login = true
 
-after-startup-command = ['exec-and-forget brew services start borders']
+after-startup-command = ['exec-and-forget /opt/homebrew/bin/brew services start borders']
 
 [workspace-to-monitor-force-assignment]
 1 = 'main'
