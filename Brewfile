@@ -23,6 +23,7 @@ brew "difftastic"    # Better diff output
 
 # Editor & Terminal
 brew "neovim"
+brew "tmux"
 cask "ghostty"
 cask "visual-studio-code"
 cask "font-jetbrains-mono"

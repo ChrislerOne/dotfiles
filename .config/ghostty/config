@@ -1,2 +1,8 @@
 theme = Catppuccin Mocha
-window-decoration = true
+window-decoration = false
+macos-titlebar-style = tabs
+macos-non-native-fullscreen = true
+macos-window-shadow = false
+resize-overlay = never
+mouse-hide-while-typing = true
+command = /opt/homebrew/bin/tmux new-session -A -s main

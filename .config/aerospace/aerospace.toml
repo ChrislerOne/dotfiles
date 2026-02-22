@@ -2,12 +2,18 @@ start-at-login = true
 
 after-startup-command = ['exec-and-forget /opt/homebrew/bin/brew services start borders']
 
-[workspace-to-monitor-force-assignment]
-1 = 'main'
-2 = 'main'
-3 = 'main'
-4 = 'secondary'
-5 = 'secondary'
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'layout tiling'
+
+# Uncomment for dual-monitor setups to pin workspaces to specific monitors.
+# Monitor names can be found with: aerospace list-monitors
+# [workspace-to-monitor-force-assignment]
+# 1 = 'main'
+# 2 = 'main'
+# 3 = 'main'
+# 4 = 'secondary'
+# 5 = 'secondary'
 
 [gaps]
 inner.horizontal = 0

@@ -11,6 +11,15 @@
 .config/gh/
 .config/glab-cli/
 
+# Tmux plugin manager
+.config/tmux/plugins/
+
+# Device-specific
+.config/linearmouse/
+
+# Claude
+.claude/
+
 # Local/private files
 *.local
 *.private
