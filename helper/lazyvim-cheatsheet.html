@@ -404,45 +404,45 @@
 
   <!-- TMUX -->
   <div class="card green" style="grid-column: 1 / -1;">
-    <div class="card-title"><span class="icon">&#128225;</span> tmux — Terminal Multiplexer <small style="color: var(--text-dim); font-weight: 400; margin-left: 0.5rem;">Prefix = <kbd class="leader" style="background: linear-gradient(135deg, #2a5e2d, #2d5e3b); border-color: var(--accent-green); color: var(--accent-green);">Ctrl+a</kbd></small></div>
+    <div class="card-title"><span class="icon">&#128225;</span> tmux — Terminal Multiplexer <small style="color: var(--text-dim); font-weight: 400; margin-left: 0.5rem;">Prefix = <kbd class="leader" style="background: linear-gradient(135deg, #2a5e2d, #2d5e3b); border-color: var(--accent-green); color: var(--accent-green);">Ctrl+b</kbd></small></div>
     <div class="mode-grid">
       <div class="mode-box normal" style="border-color: var(--accent-green);">
         <div class="mode-name" style="color: var(--accent-green);">SESSIONS</div>
         <div class="mode-desc">Create &amp; manage sessions</div>
         <table>
-          <tr><td><kbd>Ctrl</kbd><kbd>a</kbd> <kbd>d</kbd></td><td>Detach session</td></tr>
-          <tr><td><kbd>Ctrl</kbd><kbd>a</kbd> <kbd>s</kbd></td><td>List sessions</td></tr>
-          <tr><td><kbd>Ctrl</kbd><kbd>a</kbd> <kbd>$</kbd></td><td>Rename session</td></tr>
+          <tr><td><kbd>Ctrl</kbd><kbd>b</kbd> <kbd>d</kbd></td><td>Detach session</td></tr>
+          <tr><td><kbd>Ctrl</kbd><kbd>b</kbd> <kbd>s</kbd></td><td>List sessions</td></tr>
+          <tr><td><kbd>Ctrl</kbd><kbd>b</kbd> <kbd>$</kbd></td><td>Rename session</td></tr>
         </table>
       </div>
       <div class="mode-box insert" style="border-color: var(--accent-green);">
         <div class="mode-name" style="color: var(--accent-green);">WINDOWS</div>
         <div class="mode-desc">Create &amp; switch windows</div>
         <table>
-          <tr><td><kbd>Ctrl</kbd><kbd>a</kbd> <kbd>c</kbd></td><td>New window</td></tr>
-          <tr><td><kbd>Ctrl</kbd><kbd>a</kbd> <kbd>n</kbd> / <kbd>p</kbd></td><td>Next / Previous window</td></tr>
-          <tr><td><kbd>Ctrl</kbd><kbd>a</kbd> <kbd>0-9</kbd></td><td>Go to window by number</td></tr>
-          <tr><td><kbd>Ctrl</kbd><kbd>a</kbd> <kbd>,</kbd></td><td>Rename window</td></tr>
-          <tr><td><kbd>Ctrl</kbd><kbd>a</kbd> <kbd>&amp;</kbd></td><td>Close window</td></tr>
+          <tr><td><kbd>Ctrl</kbd><kbd>b</kbd> <kbd>c</kbd></td><td>New window</td></tr>
+          <tr><td><kbd>Ctrl</kbd><kbd>b</kbd> <kbd>n</kbd> / <kbd>p</kbd></td><td>Next / Previous window</td></tr>
+          <tr><td><kbd>Ctrl</kbd><kbd>b</kbd> <kbd>0-9</kbd></td><td>Go to window by number</td></tr>
+          <tr><td><kbd>Ctrl</kbd><kbd>b</kbd> <kbd>,</kbd></td><td>Rename window</td></tr>
+          <tr><td><kbd>Ctrl</kbd><kbd>b</kbd> <kbd>&amp;</kbd></td><td>Close window</td></tr>
         </table>
       </div>
       <div class="mode-box visual" style="border-color: var(--accent-green);">
         <div class="mode-name" style="color: var(--accent-green);">PANES</div>
         <div class="mode-desc">Split &amp; navigate panes</div>
         <table>
-          <tr><td><kbd>Ctrl</kbd><kbd>a</kbd> <kbd>v</kbd></td><td>Split vertical</td></tr>
-          <tr><td><kbd>Ctrl</kbd><kbd>a</kbd> <kbd>s</kbd></td><td>Split horizontal</td></tr>
-          <tr><td><kbd>Ctrl</kbd><kbd>a</kbd> <kbd>h</kbd><kbd>j</kbd><kbd>k</kbd><kbd>l</kbd></td><td>Navigate panes (vim-style)</td></tr>
-          <tr><td><kbd>Ctrl</kbd><kbd>a</kbd> <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd></td><td>Resize panes</td></tr>
-          <tr><td><kbd>Ctrl</kbd><kbd>a</kbd> <kbd>x</kbd></td><td>Close pane</td></tr>
-          <tr><td><kbd>Ctrl</kbd><kbd>a</kbd> <kbd>z</kbd></td><td>Zoom pane (toggle)</td></tr>
+          <tr><td><kbd>Ctrl</kbd><kbd>b</kbd> <kbd>v</kbd></td><td>Split vertical</td></tr>
+          <tr><td><kbd>Ctrl</kbd><kbd>b</kbd> <kbd>-</kbd></td><td>Split horizontal</td></tr>
+          <tr><td><kbd>Ctrl</kbd><kbd>b</kbd> <kbd>h</kbd><kbd>j</kbd><kbd>k</kbd><kbd>l</kbd></td><td>Navigate panes (vim-style)</td></tr>
+          <tr><td><kbd>Ctrl</kbd><kbd>b</kbd> <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd></td><td>Resize panes</td></tr>
+          <tr><td><kbd>Ctrl</kbd><kbd>b</kbd> <kbd>x</kbd></td><td>Close pane</td></tr>
+          <tr><td><kbd>Ctrl</kbd><kbd>b</kbd> <kbd>z</kbd></td><td>Zoom pane (toggle)</td></tr>
         </table>
       </div>
       <div class="mode-box command" style="border-color: var(--accent-green);">
         <div class="mode-name" style="color: var(--accent-green);">COPY MODE</div>
         <div class="mode-desc">Vi-style copy &amp; scroll</div>
         <table>
-          <tr><td><kbd>Ctrl</kbd><kbd>a</kbd> <span class="kb-de"><kbd>⌥</kbd><kbd>5</kbd></span><span class="kb-en"><kbd>[</kbd></span></td><td>Enter copy mode</td></tr>
+          <tr><td><kbd>Ctrl</kbd><kbd>b</kbd> <span class="kb-de"><kbd>⌥</kbd><kbd>5</kbd></span><span class="kb-en"><kbd>[</kbd></span></td><td>Enter copy mode</td></tr>
           <tr><td><kbd>v</kbd> <small>(in copy mode)</small></td><td>Begin selection</td></tr>
           <tr><td><kbd>y</kbd> <small>(in copy mode)</small></td><td>Yank selection</td></tr>
           <tr><td><kbd>q</kbd></td><td>Exit copy mode</td></tr>
