@@ -1,6 +1,6 @@
 tap "azure/kubelogin"
 tap "hashicorp/tap"
-tap "kyverno/chainsaw"
+tap "kyverno/chainsaw", "https://github.com/kyverno/chainsaw"
 tap "brunoluiz/tap"
 tap "nikitabobko/tap"
 tap "FelixKratz/formulae"
@@ -37,6 +37,7 @@ cask "1password"
 cask "alfred"
 cask "alt-tab"
 cask "linearmouse"
+cask "shottr"
 
 # Kubernetes & Cloud Tools
 brew "kubernetes-cli"
