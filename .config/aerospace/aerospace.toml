@@ -6,14 +6,16 @@ after-startup-command = ['exec-and-forget /opt/homebrew/bin/brew services start 
 if.app-id = 'com.mitchellh.ghostty'
 run = 'layout tiling'
 
-# Uncomment for dual-monitor setups to pin workspaces to specific monitors.
-# Monitor names can be found with: aerospace list-monitors
-# [workspace-to-monitor-force-assignment]
-# 1 = 'main'
-# 2 = 'main'
-# 3 = 'main'
-# 4 = 'secondary'
-# 5 = 'secondary'
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = 'main'
+4 = [1, 'main']
+5 = [1, 'main']
+6 = [1, 'main']
+7 = [3, 'main', 1]
+8 = [3, 'main', 1]
+9 = [3, 'main', 1]
 
 [gaps]
 inner.horizontal = 0
@@ -46,12 +48,20 @@ cmd-alt-2 = 'workspace 2'
 cmd-alt-3 = 'workspace 3'
 cmd-alt-4 = 'workspace 4'
 cmd-alt-5 = 'workspace 5'
+cmd-alt-6 = 'workspace 6'
+cmd-alt-7 = 'workspace 7'
+cmd-alt-8 = 'workspace 8'
+cmd-alt-9 = 'workspace 9'
 
 cmd-alt-shift-1 = 'move-node-to-workspace 1'
 cmd-alt-shift-2 = 'move-node-to-workspace 2'
 cmd-alt-shift-3 = 'move-node-to-workspace 3'
 cmd-alt-shift-4 = 'move-node-to-workspace 4'
 cmd-alt-shift-5 = 'move-node-to-workspace 5'
+cmd-alt-shift-6 = 'move-node-to-workspace 6'
+cmd-alt-shift-7 = 'move-node-to-workspace 7'
+cmd-alt-shift-8 = 'move-node-to-workspace 8'
+cmd-alt-shift-9 = 'move-node-to-workspace 9'
 
 # Layout
 cmd-alt-f = 'fullscreen'

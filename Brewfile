@@ -40,6 +40,7 @@ cask "linearmouse"
 cask "shottr"
 
 # Kubernetes & Cloud Tools
+cask "docker"
 brew "kubernetes-cli"
 brew "k9s"
 brew "kubectx"
@@ -54,7 +55,6 @@ brew "dive"
 brew "brunoluiz/tap/xpdig"
 
 # Development Tools
-brew "go"
 brew "ansible"
 brew "hashicorp/tap/packer"
 brew "tenv"
