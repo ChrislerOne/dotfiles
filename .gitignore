@@ -23,3 +23,6 @@
 # Local/private files
 *.local
 *.private
+
+# 1Password
+*.config/1Password/
