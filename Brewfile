@@ -65,6 +65,7 @@ brew "glab"
 brew "doggo"
 brew "watch"
 brew "gh"
+brew "lazygit"
 
 # VS Code Extensions
 vscode "golang.go"

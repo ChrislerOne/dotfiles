@@ -7,7 +7,7 @@ plugins:
     description: "Crossplane Trace"
     scopes:
       - all
-    command: sh
+    command: bash
     background: false
     args:
       - -c
