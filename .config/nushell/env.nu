@@ -14,6 +14,12 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend [
     $'($env.HOME)/.local/bin'
 ])
 
+# rustup shims take precedence over the brew `rust` formula
+let cargo_bin = ($env.HOME | path join ".cargo" "bin")
+if ($cargo_bin | path exists) {
+    $env.PATH = ($env.PATH | prepend $cargo_bin)
+}
+
 # Generate zoxide init
 mkdir ~/.cache/zoxide
 zoxide init nushell | save -f ~/.cache/zoxide/init.nu

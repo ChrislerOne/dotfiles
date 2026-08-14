@@ -31,3 +31,14 @@
 *.config/argocd/
 *.config/cagent/
 
+# sensitive files
+.config/gcx/
+.config/github-copilot/
+.config/helm/
+.config/jgit/
+.config/op/
+.config/packer/
+.config/zed/prompts/
+
+# lock files
+.config/**/*.lock

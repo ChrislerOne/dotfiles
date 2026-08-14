@@ -1,0 +1,12 @@
+{
+  "trustedtaps": [
+    "azure/kubelogin",
+    "brunoluiz/tap",
+    "felixkratz/formulae",
+    "grafana/grafana",
+    "grafana/tap",
+    "hashicorp/tap",
+    "https://github.com/kyverno/chainsaw",
+    "nikitabobko/tap"
+  ]
+}

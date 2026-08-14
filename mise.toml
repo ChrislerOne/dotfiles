@@ -2,3 +2,4 @@
 node = "lts"
 go = "1.26"
 python = "3.14"
+java = "temurin-21"

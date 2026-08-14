@@ -7,6 +7,9 @@ elif [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
 fi
 export PATH="$HOME/.local/bin:$PATH"
 
+# rustup shims must be prepended after brew shellenv to win over the `rust` formula
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
 source ~/.zsh_aliases
 
 eval "$(starship init zsh)"

@@ -31,6 +31,7 @@ cask "font-jetbrains-mono"
 # Window Manager
 cask "nikitabobko/tap/aerospace"
 brew "FelixKratz/formulae/borders"
+cask "thaw"
 
 # GUI & Productivity
 cask "1password"
@@ -66,6 +67,7 @@ brew "doggo"
 brew "watch"
 brew "gh"
 brew "lazygit"
+brew "rustup"        # Rust toolchain manager (provides ~/.cargo/env)
 
 # VS Code Extensions
 vscode "golang.go"
