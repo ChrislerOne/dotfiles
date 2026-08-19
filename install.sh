@@ -31,6 +31,19 @@ fi
 
 [ "$(uname -s)" = Darwin ] || abort "this script targets macOS"
 
+# bash spools here-documents through a temp file: $TMPDIR when usable, otherwise
+# /tmp. If both are denied, every heredoc fails with "cannot create temp file for
+# here document" -- including the two at the end of Homebrew's installer. Probing
+# and falling back to $HOME keeps that off the critical path.
+probe="${TMPDIR:-/tmp}/.dotfiles-probe.$$"
+if ( : >"$probe" ) 2>/dev/null; then
+    rm -f "$probe"
+else
+    export TMPDIR="$HOME/.cache/tmp"
+    mkdir -p "$TMPDIR"
+    printf 'note: default TMPDIR is not writable, using %s\n' "$TMPDIR"
+fi
+
 step "Checking sudo access"
 sudo -v || abort "sudo access is required (the Homebrew installer needs it). Get admin rights, then re-run."
 
@@ -54,15 +67,22 @@ else
 fi
 
 step "Installing Homebrew"
-command -v brew >/dev/null 2>&1 ||
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-for prefix in /opt/homebrew /usr/local; do
-    if [ -x "$prefix/bin/brew" ]; then
-        eval "$("$prefix/bin/brew" shellenv)"
-        break
-    fi
-done
-command -v brew >/dev/null 2>&1 || abort "Homebrew is not on PATH after installation"
+# Look for the binary rather than asking PATH: brew is not on a fresh shell's
+# PATH until shellenv runs, so a PATH check would reinstall it on every run.
+find_brew() {
+    BREW_BIN=""
+    for prefix in /opt/homebrew /usr/local; do
+        if [ -x "$prefix/bin/brew" ]; then BREW_BIN="$prefix/bin/brew"; return 0; fi
+    done
+    return 1
+}
+if ! find_brew; then
+    # Its exit status is unreliable -- it fails while printing its closing
+    # message on machines where heredocs cannot spool -- so check the outcome.
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || true
+    find_brew || abort "Homebrew installation failed"
+fi
+eval "$("$BREW_BIN" shellenv)"
 
 # Homebrew keeps tap trust in $XDG_CONFIG_HOME/homebrew/trust.json. Point it at
 # the repo, which is what ~/.config resolves to once stow has run, so the trust
@@ -100,15 +120,14 @@ defaults write com.apple.dock mineffect -string suck         # minimise effect
 killall Dock || true
 
 step "Apps that need a first manual launch"
-cat <<'MSG'
-These grant their macOS permissions (Accessibility / Input Monitoring) only
-after being opened once, so they do nothing until you launch them:
-
-  AeroSpace    tiling window manager
-  Thaw         menu bar manager
-  Alfred       launcher
-  LinearMouse  pointer settings
-MSG
+printf '%s\n' \
+    'These grant their macOS permissions (Accessibility / Input Monitoring) only' \
+    'after being opened once, so they do nothing until you launch them:' \
+    '' \
+    '  AeroSpace    tiling window manager' \
+    '  Thaw         menu bar manager' \
+    '  Alfred       launcher' \
+    '  LinearMouse  pointer settings'
 ask "Open them now? [y/N] "
 case "$ANSWER" in
     [Yy]*)
