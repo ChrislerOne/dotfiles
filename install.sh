@@ -31,17 +31,22 @@ fi
 
 [ "$(uname -s)" = Darwin ] || abort "this script targets macOS"
 
-# bash spools here-documents through a temp file: $TMPDIR when usable, otherwise
-# /tmp. If both are denied, every heredoc fails with "cannot create temp file for
-# here document" -- including the two at the end of Homebrew's installer. Probing
-# and falling back to $HOME keeps that off the critical path.
-probe="${TMPDIR:-/tmp}/.dotfiles-probe.$$"
-if ( : >"$probe" ) 2>/dev/null; then
-    rm -f "$probe"
-else
-    export TMPDIR="$HOME/.cache/tmp"
-    mkdir -p "$TMPDIR"
-    printf 'note: default TMPDIR is not writable, using %s\n' "$TMPDIR"
+# Two independent temp dirs matter here, and a locked-down /private/tmp breaks
+# both: bash spools here-documents to $TMPDIR (else /tmp), and Homebrew builds in
+# /private/tmp unless HOMEBREW_TEMP says otherwise. Probe each and redirect only
+# the ones that are actually denied.
+FALLBACK_TMP="$HOME/.cache/tmp"
+writable() { ( : >"$1/.probe.$$" ) 2>/dev/null && rm -f "$1/.probe.$$"; }
+
+if ! writable "${TMPDIR:-/tmp}"; then
+    mkdir -p "$FALLBACK_TMP"
+    export TMPDIR="$FALLBACK_TMP"
+    printf 'note: temp dir denied, TMPDIR redirected to %s\n' "$FALLBACK_TMP"
+fi
+if ! writable "${HOMEBREW_TEMP:-/private/tmp}"; then
+    mkdir -p "$FALLBACK_TMP"
+    export HOMEBREW_TEMP="$FALLBACK_TMP"
+    printf 'note: /private/tmp denied, HOMEBREW_TEMP redirected to %s\n' "$FALLBACK_TMP"
 fi
 
 step "Checking sudo access"
