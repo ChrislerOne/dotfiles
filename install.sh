@@ -78,9 +78,13 @@ step "Installing tmux plugins"
     printf 'skipped: launch tmux and press prefix + I instead\n'
 
 step "Applying macOS tweaks"
-defaults write com.apple.dock autohide -bool true
-defaults write com.apple.dock autohide-time-modifier -int 0
-defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide -bool true            # hide the Dock
+defaults write com.apple.dock autohide-delay -float 0        # no delay before it slides in
+defaults write com.apple.dock autohide-time-modifier -int 0  # no slide animation
+defaults write com.apple.dock tilesize -int 45               # icon size
+defaults write com.apple.dock show-recents -bool false       # no recent apps section
+defaults write com.apple.dock launchanim -bool false         # no bouncing launch animation
+defaults write com.apple.dock mineffect -string suck         # minimise effect
 killall Dock || true
 
 step "Apps that need a first manual launch"
