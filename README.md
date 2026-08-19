@@ -50,12 +50,18 @@ On a machine with nothing but `curl` and `bash`:
 1. Installs the Xcode Command Line Tools, which provide `git`
 2. Clones this repo to `~/dotfiles`, or fast-forwards it if already there
 3. Installs Homebrew
-4. Runs `brew bundle` to install everything in the `Brewfile`
-5. Deletes any `.DS_Store` files that would conflict with stow
-6. Runs `stow` to symlink the configs into `$HOME`
-7. Installs the tmux plugins via TPM
-8. Applies the macOS tweaks below
-9. Offers to open the apps that need a first manual launch
+4. Trusts the taps the `Brewfile` declares — Homebrew refuses to load formulae
+   from untrusted third-party taps, so `brew bundle` fails without this
+5. Runs `brew bundle` to install everything in the `Brewfile`
+6. Deletes any `.DS_Store` files that would conflict with stow
+7. Runs `stow --restow` to symlink the configs into `$HOME`
+8. Installs the tmux plugins via TPM
+9. Applies the macOS tweaks below
+10. Offers to open the apps that need a first manual launch
+
+Every step is guarded, so re-running is safe and converges: already-trusted taps
+report `Already trusted`, `--restow` clears links for files that left the repo,
+and the `defaults write` calls just rewrite the same values.
 
 Set `DOTFILES_DIR` to check out somewhere other than `~/dotfiles`. Running
 `./install.sh` from inside an existing clone uses that clone rather than making

@@ -64,6 +64,18 @@ for prefix in /opt/homebrew /usr/local; do
 done
 command -v brew >/dev/null 2>&1 || abort "Homebrew is not on PATH after installation"
 
+# Homebrew keeps tap trust in $XDG_CONFIG_HOME/homebrew/trust.json. Point it at
+# the repo, which is what ~/.config resolves to once stow has run, so the trust
+# granted here is the same file the shells read afterwards.
+export XDG_CONFIG_HOME="$REPO/.config"
+
+step "Trusting the Brewfile taps"
+# Both tokens on a tap line: the name, and the explicit URL when one is given.
+# brew records whichever it resolves the tap to, and trusting extra is harmless.
+grep '^tap "' "$REPO/Brewfile" | grep -oE '"[^"]+"' | tr -d '"' | while read -r tap; do
+    brew trust --tap "$tap"
+done
+
 step "Installing Brewfile packages"
 brew bundle --file="$REPO/Brewfile"
 
@@ -71,7 +83,7 @@ step "Deleting .DS_Store files that would block stow"
 find "$REPO" -name .DS_Store -delete
 
 step "Linking dotfiles into $HOME"
-stow --dir="$REPO" --target="$HOME" --ignore='^install\.sh$' .
+stow --restow --dir="$REPO" --target="$HOME" --ignore='^install\.sh$' .
 
 step "Installing tmux plugins"
 "$(brew --prefix)/opt/tpm/share/tpm/bin/install_plugins" ||
