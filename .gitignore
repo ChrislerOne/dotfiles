@@ -1,9 +1,6 @@
 # OS
 .DS_Store
 
-# Nvim
-.config/nvim/lazy-lock.json
-
 # Nushell history
 .config/nushell/history.*
 
