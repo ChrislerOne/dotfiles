@@ -1,6 +1,7 @@
 # dotfiles
 
 My configuration files for zsh, nushell, nvim, tmux, starship, and more.
+The shell configs detect Homebrew on macOS and Linux; `install.sh` is macOS only.
 
 ## What's included
 
@@ -9,47 +10,84 @@ My configuration files for zsh, nushell, nvim, tmux, starship, and more.
 - **ghostty** — terminal emulator
 - **git** — global gitignore
 - **k9s** — Kubernetes TUI
+- **lazygit** — git TUI
+- **mise** — pinned language runtimes (`mise.toml`)
 - **nvim** — LazyVim-based Neovim config
 - **nushell** — modern shell
 - **starship** — cross-shell prompt
 - **tmux** — terminal multiplexer (with TPM)
+- **zed** — editor
 - **zsh** — shell config with aliases and plugins
+
+## Applications
+
+Installed as casks by `brew bundle`. The ones marked † do nothing until opened
+once manually, to grant their macOS permissions — `install.sh` offers to do this
+at the end.
+
+- **1password** — password manager
+- **aerospace** † — i3-like tiling window manager
+- **alfred** † — application launcher
+- **alt-tab** — Windows-like alt-tab
+- **docker-desktop** — build and run containers
+- **font-jetbrains-mono** — terminal font
+- **ghostty** — GPU-accelerated terminal emulator
+- **linearmouse** † — pointer behaviour
+- **shottr** — screenshot measurement and annotation
+- **thaw** † — menu bar manager
+- **visual-studio-code** — editor
 
 ## Quickstart
 
+On a machine with nothing but `curl` and `bash`:
+
 ```bash
-# Clone the repo
-git clone https://github.com/ChrislerOne/dotfiles.git ~/dotfiles
-
-# Install Homebrew dependencies
-cd ~/dotfiles
-brew bundle
-
-# Remove any .DS_Store files that would conflict with stow
-find ~/dotfiles -name .DS_Store -delete
-
-# Create symlinks
-stow .
-
-# Install tmux plugins (after first launching tmux)
-# Press prefix + I inside tmux, or run:
-~/.config/tmux/plugins/tpm/bin/install_plugins
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ChrislerOne/dotfiles/main/install.sh)"
 ```
 
-## Optional macOS tweaks
+`install.sh` aborts immediately if you don't have sudo, then, idempotently:
+
+1. Installs the Xcode Command Line Tools, which provide `git`
+2. Clones this repo to `~/dotfiles`, or fast-forwards it if already there
+3. Installs Homebrew
+4. Runs `brew bundle` to install everything in the `Brewfile`
+5. Deletes any `.DS_Store` files that would conflict with stow
+6. Runs `stow` to symlink the configs into `$HOME`
+7. Installs the tmux plugins via TPM
+8. Applies the macOS tweaks below
+9. Offers to open the apps that need a first manual launch
+
+Set `DOTFILES_DIR` to check out somewhere other than `~/dotfiles`. Running
+`./install.sh` from inside an existing clone uses that clone rather than making
+a second one. Piping into `bash` works too — prompts are read from `/dev/tty`.
+
+### Manual equivalent
 
 ```bash
-# Hide the Dock (autohide)
-defaults write com.apple.dock autohide -bool true; killall Dock
+cd ~/dotfiles
+brew bundle
+find ~/dotfiles -name .DS_Store -delete
+stow .
 
-# Remove dock autohide animation
-defaults write com.apple.dock autohide-time-modifier -int 0; killall Dock
+# tmux plugins: press prefix + I inside tmux, or run
+"$(brew --prefix)/opt/tpm/share/tpm/bin/install_plugins"
+```
 
-# Remove dock autohide delay
-defaults write com.apple.dock autohide-delay -float 0; killall Dock
+## macOS tweaks
+
+Applied by `install.sh`:
+
+```bash
+# Hide the Dock, with no animation or delay
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-time-modifier -int 0
+defaults write com.apple.dock autohide-delay -float 0
+killall Dock
 ```
 
 ## Dependencies
+
+All declared in the `Brewfile`. The notable ones:
 
 - [starship](https://starship.rs) - prompt
 - [zoxide](https://github.com/ajeetdsouza/zoxide) - smart cd
@@ -58,4 +96,5 @@ defaults write com.apple.dock autohide-delay -float 0; killall Dock
 - [fzf](https://github.com/junegunn/fzf) - fuzzy finder
 - [tmux](https://github.com/tmux/tmux) - terminal multiplexer
 - [tpm](https://github.com/tmux-plugins/tpm) - tmux plugin manager
+- [rustup](https://rustup.rs) - Rust toolchain; `.zshrc` and nushell add `~/.cargo/bin` to PATH when it is present
 - [borders](https://github.com/FelixKratz/JankyBorders) - window border highlights (started via `brew services` by Aerospace)

@@ -24,6 +24,7 @@ brew "difftastic"    # Better diff output
 # Editor & Terminal
 brew "neovim"
 brew "tmux"
+brew "tpm"           # tmux plugin manager
 cask "ghostty"
 cask "visual-studio-code"
 cask "font-jetbrains-mono"
@@ -41,7 +42,7 @@ cask "linearmouse"
 cask "shottr"
 
 # Kubernetes & Cloud Tools
-cask "docker"
+cask "docker-desktop"
 brew "kubernetes-cli"
 brew "k9s"
 brew "kubectx"
